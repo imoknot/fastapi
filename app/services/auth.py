@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
-from hashlib import sha512
 from http import HTTPStatus
 from uuid import UUID
 
+import bcrypt
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
@@ -30,7 +30,7 @@ class AuthService:
 
     @staticmethod
     def hash_password(password: str, password_salt: str) -> str:
-        return sha512((password + password_salt).encode('utf-8')).hexdigest()
+        return bcrypt.hashpw(password.encode('utf-8'), password_salt.encode('utf-8')).decode('utf-8')
 
     def verify_password(self, plain_password: str, hashed_password: str, password_salt: str) -> bool:
         if self.hash_password(plain_password, password_salt) == hashed_password:

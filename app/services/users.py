@@ -1,8 +1,8 @@
-from hashlib import sha512
 from http import HTTPStatus
 from random import random
 from uuid import UUID
 
+import bcrypt
 from fastapi import HTTPException
 
 from app.models.users import UserDB
@@ -15,8 +15,8 @@ class UserService:
     def __init__(self):
         self.user_repository: UserRepository = UserRepository()
 
-    def _generate_password_salt(self):
-        return sha512(random().__str__().encode('utf-8')).hexdigest()
+    def _generate_password_salt(self) -> str:
+        return bcrypt.gensalt().decode('utf-8')
 
     async def create_or_update_user(self, user_data: UserCreate) -> User:
         user_dict = user_data.model_dump(exclude_none=True)
