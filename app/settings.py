@@ -11,6 +11,10 @@ class Settings(BaseSettings):
     OPENAPI_URL: str = '/openapi.json'
     LOG_LEVEL: str = 'debug'
 
+    PAGINATION_PAGE: int = 1
+    PAGINATION_PAGE_SIZE: int = 25
+    PAGINATION_PAGE_SIZE_MAX: int = 100
+
     POSTGRES_HOST: str = 'localhost'
     POSTGRES_PORT: int = 5454
     POSTGRES_DB: str = 'project_pg_db'

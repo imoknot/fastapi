@@ -8,7 +8,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 
 from app.repositories.user import UserRepository
-from app.schemes.auth import Token, TokenData
+from app.schemаs.auth import Token, TokenData
 from app.settings import settings
 
 oauth2_scheme_user = OAuth2PasswordBearer(tokenUrl='/v1/auth/login/')

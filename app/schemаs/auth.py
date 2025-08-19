@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 
 
 class Token(BaseModel):
-    access_token: str = Field(example='LivedUgrandmotherThreeGeeseOneGreyOtherWhiteTwoFunnyGeese')
+    access_token: str = Field(examples=['LivedUgrandmotherThreeGeeseOneGreyOtherWhiteTwoFunnyGeese'])
 
 
 class TokenData(BaseModel):

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 
-from app.schemes.users import UserChangePassword
+from app.schemаs.users import UserChangePassword
 from app.services.auth import checking_credentials
 from app.services.users import UserService
 

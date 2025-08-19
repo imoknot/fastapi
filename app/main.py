@@ -1,5 +1,4 @@
 from contextlib import asynccontextmanager
-from random import random
 
 import uvicorn
 from fastapi import FastAPI
@@ -8,7 +7,7 @@ from fastapi.responses import ORJSONResponse
 
 from app.engines.postgres_storage import PostgresEngine
 from app.routers import router
-from app.schemes.users import UserCreate
+from app.schemаs.users import UserCreate
 from app.services.users import UserService
 from app.settings import settings
 

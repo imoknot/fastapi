@@ -1,5 +1,4 @@
 from http import HTTPStatus
-from random import random
 from uuid import UUID
 
 import bcrypt
@@ -7,7 +6,7 @@ from fastapi import HTTPException
 
 from app.models.users import UserDB
 from app.repositories.user import UserRepository
-from app.schemes.users import User, UserChangePassword, UserCreate
+from app.schemаs.users import User, UserChangePassword, UserCreate
 from app.services.auth import AuthService
 
 

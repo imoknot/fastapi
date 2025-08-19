@@ -4,16 +4,16 @@ from pydantic import BaseModel, Field, model_validator
 
 
 class UserPasswordSalt(BaseModel):
-    password_salt: str | None = Field(example='Very Very RandomData')
+    password_salt: str | None = Field(examples=['Very Very RandomData'])
 
 
 class UserPassword(BaseModel):
-    password: str = Field(example='very secret password')
+    password: str = Field(examples=['very secret password'])
 
 
 class User(BaseModel):
-    user_uuid: UUID | None = Field(None, examples=uuid4())
-    username: str = Field(example='big_big_boss')
+    user_uuid: UUID | None = Field(None, examples=[uuid4()])
+    username: str = Field(examples=['big_big_boss'])
 
 
 class UserCreate(User, UserPassword):
@@ -21,7 +21,7 @@ class UserCreate(User, UserPassword):
 
 
 class UserChangePassword(UserPassword):
-    password_new: str = Field(example='New secret password')
+    password_new: str = Field(examples=['New secret password'])
 
     @model_validator(mode='after')
     def check_abortion(self):
