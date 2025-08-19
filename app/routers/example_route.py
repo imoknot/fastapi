@@ -9,14 +9,14 @@ router = APIRouter(prefix='/test_rout', tags=['Test Data'])
 
 
 @router.post('/create/', deprecated=True)
-async def data_types(
+async def test_create(
     auth_user: checking_credentials = Depends(),
 ):
     """im ok, im not alcoholic"""
     return auth_user
 
 @router.get('/pagination_example/')
-async def data_types(
+async def pagination_example(
     item: PaginationParams = Depends(),
     auth_user: checking_credentials = Depends()
 ) -> Pagination:

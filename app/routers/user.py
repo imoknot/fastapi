@@ -8,7 +8,7 @@ router = APIRouter(prefix='/user', tags=['User'])
 
 
 @router.post('/change_password/', response_model=bool)
-async def data_types(
+async def change_password(
     user_password_data: UserChangePassword,
     auth_user: checking_credentials = Depends(),
     user_service: UserService = Depends(),
