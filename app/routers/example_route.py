@@ -15,7 +15,7 @@ async def data_types(
     """im ok, im not alcoholic"""
     return auth_user
 
-@router.get('/')
+@router.get('/pagination_example/')
 async def data_types(
     item: PaginationParams = Depends(),
     auth_user: checking_credentials = Depends()
